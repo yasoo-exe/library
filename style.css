@@ -1,0 +1,14 @@
+table {
+    background-color: green;
+    width: 80%;
+}
+
+table thead tr {
+    background-color: lightblue;
+    text-align: left;
+}
+
+table tbody tr {
+    background-color: lightyellow;
+    text-align: left;
+}
