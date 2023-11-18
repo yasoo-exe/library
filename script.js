@@ -6,26 +6,7 @@ document.querySelector("#add").addEventListener("click", (e) => {
 });
 
 // library to store all the books
-const myLibrary = [
-  {
-    title: "1984",
-    author: "George Orwell",
-    pages: 80,
-    readStatus: "No",
-  },
-  {
-    title: "Treasure Island",
-    author: "Robert Louis Stevenson",
-    pages: 300,
-    readStatus: "Yes",
-  },
-  {
-    title: "A Tale of Two Cities",
-    author: "Charles Dickens",
-    pages: 360,
-    readStatus: "No",
-  },
-];
+const myLibrary = [];
 
 //constructor to create book objects
 class Book {
@@ -57,16 +38,27 @@ function addBookToLibrary() {
 function displayBooks() {
   document.querySelector("tbody").innerText = "";
 
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     const newRow = document.createElement("tr");
     newRow.innerHTML = `
   <td>${book.title}</td>
   <td>${book.author}</td>
   <td>${book.pages}</td>
   <td>${book.readStatus}</td>
-  <td class="remove">X</td>
+  <td class="remove" id="${index}">X</td>
   `;
 
     document.querySelector("tbody").append(newRow);
+  });
+  removeBookFromLibrary();
+}
+
+//function that removes a book from the table once the cross button is clicked
+function removeBookFromLibrary() {
+  document.querySelectorAll(".remove").forEach((book) => {
+    book.addEventListener("click", () => {
+      myLibrary.splice(book.id, 1);
+      displayBooks();
+    });
   });
 }
