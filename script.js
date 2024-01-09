@@ -49,12 +49,15 @@ function displayBooks() {
 
   myLibrary.forEach((book, index) => {
     const newRow = document.createElement("tr");
+    newRow.setAttribute("class", "lh-lg");
     newRow.innerHTML = `
+  <th scope="row" class="text-center">${index + 1}</th>
   <td>${book.title}</td>
   <td>${book.author}</td>
-  <td>${book.pages}</td>
+  <td class="text-end">${book.pages}</td>
   <td class="currentStatus" statusChangeId=${index}>${book.readStatus}</td>
-  <td class="remove" dataRemoveId="${index}">X</td>
+  <td class="text-center"><button type="button"
+  class="btn btn-outline-danger btn-sm remove" dataRemoveId="${index}">remove</button></td>
   `;
 
     document.querySelector("tbody").append(newRow);
