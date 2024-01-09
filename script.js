@@ -28,10 +28,10 @@ document.querySelector("#add").addEventListener("click", addBookToLibrary);
 function addBookToLibrary(event) {
   let title = document.querySelector("#title").value;
   if (title === "") {
-    document.querySelector("#bookTitleError").style.display = "inline";
+    document.querySelector("#titleHelp").style.display = "inline";
     return;
   } else {
-    document.querySelector("#bookTitleError").style.display = "none";
+    document.querySelector("#titleHelp").style.display = "none";
     let author = document.querySelector("#author").value;
     let pages = Number(document.querySelector("#pages").value); //we need a number as pages value
     let readStatus = document.querySelector("#status").checked;
