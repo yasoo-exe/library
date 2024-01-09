@@ -61,10 +61,9 @@
                 <label for="pages">Pages: </label
                 ><input type="number" name="pages" id="pages" /><br /><br />
                 <label for="status">I have finished this book: </label
-                ><select name="status" id="status">
-                  <option selected>Yes</option>
-                  <option>No</option></select
-                ><br /><br />
+                ><input type="checkbox" id="status" />
+
+                <br /><br />
               </form>
             </div>
             <div class="modal-footer">
@@ -91,7 +90,8 @@
               <th scope="col" class="col-3">Title</th>
               <th scope="col" class="col-3">Author</th>
               <th scope="col" class="text-end col">Pages</th>
-              <th scope="col" colspan="2" class="col">Status</th>
+              <th scope="col" class="col text-center">Status</th>
+              <th scope="col" class="col"></th>
             </tr>
           </thead>
           <tbody class="table-group-divider"></tbody>

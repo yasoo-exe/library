@@ -15,9 +15,9 @@ class Book {
 
 //method on the class to change the readStatus of the book
 Book.prototype.changeReadStatus = function () {
-  this.readStatus == "No"
-    ? (this.readStatus = "Yes")
-    : (this.readStatus = "No");
+  this.readStatus == true
+    ? (this.readStatus = false)
+    : (this.readStatus = true);
 };
 
 /*function that'll run once the user adds a new book, it'll take user's input and 
@@ -34,7 +34,7 @@ function addBookToLibrary(event) {
     document.querySelector("#bookTitleError").style.display = "none";
     let author = document.querySelector("#author").value;
     let pages = Number(document.querySelector("#pages").value); //we need a number as pages value
-    let readStatus = document.querySelector("#status").value;
+    let readStatus = document.querySelector("#status").checked;
 
     const newBook = new Book(title, author, pages, readStatus);
     myLibrary.push(newBook);
@@ -55,7 +55,11 @@ function displayBooks() {
   <td>${book.title}</td>
   <td>${book.author}</td>
   <td class="text-end">${book.pages}</td>
-  <td class="currentStatus" statusChangeId=${index}>${book.readStatus}</td>
+  <td class="currentStatus text-center" statusChangeId=${index}>${
+      book.readStatus === true
+        ? `<button type="button" class="btn btn-success btn-sm">Yes</button>`
+        : `<button type="button" class="btn btn-warning btn-sm">No</button>`
+    }</td>
   <td class="text-center"><button type="button"
   class="btn btn-outline-danger btn-sm remove" dataRemoveId="${index}">remove</button></td>
   `;
